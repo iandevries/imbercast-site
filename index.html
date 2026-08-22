@@ -75,27 +75,6 @@ h1 b{font-weight:500;color:var(--accent)}
 .lede{color:var(--ink-2);max-width:46ch;margin:0 0 30px;font-size:1rem}
 .lede em{color:var(--ink);font-style:normal}
 
-/* ---------- signup ---------- */
-.signup{max-width:430px}
-.signup .label{color:var(--ink-3);display:block;margin-bottom:11px}
-.field{display:flex;gap:8px;flex-wrap:wrap}
-input[type=email]{
-  flex:1 1 210px;min-width:0;background:var(--bg-2);color:var(--ink);
-  border:1px solid var(--line);border-radius:8px;padding:12px 14px;
-  font-family:var(--body);font-size:.95rem;transition:border-color .18s,box-shadow .18s}
-input[type=email]::placeholder{color:var(--ink-3)}
-input[type=email]:focus{outline:none;border-color:rgba(77,159,255,.6);box-shadow:0 0 0 3px rgba(77,159,255,.14)}
-button{
-  flex:0 0 auto;background:var(--accent);color:#04070c;border:0;border-radius:8px;
-  padding:12px 20px;font-family:var(--display);font-weight:600;font-size:.92rem;
-  letter-spacing:.01em;cursor:pointer;transition:filter .18s,transform .18s}
-button:hover{filter:brightness(1.09)}
-button:active{transform:translateY(1px)}
-button[disabled]{opacity:.55;cursor:default}
-.msg{margin-top:11px;min-height:20px;font-size:.87rem;color:var(--ink-2)}
-.msg.ok{color:#66d19e}
-.msg.err{color:#ff8f8f}
-
 /* ---------- art ---------- */
 .art{position:relative;justify-self:center;width:100%;max-width:640px}
 .net{width:100%;height:auto;display:block;overflow:visible;
@@ -165,22 +144,6 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
       <div class="rule"></div>
       <p class="tagline">3D sprinkler design and hydraulic calculation.</p>
       <p class="lede">A standalone desktop application for laying out fire sprinkler systems in three dimensions and calculating them to NFPA&nbsp;13. Import the floor plan, draw the system, run the calc, print the package. <em>No CAD license required.</em></p>
-
-      <!--
-        SIGNUP FORM SETUP
-        1. Create a free form at https://formspree.io and copy its endpoint.
-        2. Replace YOUR_FORM_ID below with the ID from that endpoint.
-        Until then the form shows a "not connected yet" message instead of submitting.
-      -->
-      <form class="signup" id="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <label class="label mono" for="email">Get notified at release</label>
-        <div class="field">
-          <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
-          <input type="hidden" name="_subject" value="Imbercast launch list signup">
-          <button type="submit">Notify me</button>
-        </div>
-        <p class="msg" id="msg" role="status" aria-live="polite"></p>
-      </form>
     </div>
 
     <div class="art"><svg class="net" viewBox="-300.7 -8.7 677.7 467.3" aria-hidden="true" focusable="false">
@@ -232,34 +195,5 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 
 </div>
 
-<script>
-(function () {
-  var form = document.getElementById('signup');
-  var msg  = document.getElementById('msg');
-  var btn  = form.querySelector('button');
-
-  function say(text, kind) { msg.textContent = text; msg.className = 'msg' + (kind ? ' ' + kind : ''); }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
-      say('Signup is not connected yet.', 'err');
-      return;
-    }
-    btn.disabled = true;
-    say('Sending...');
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
-    }).then(function (r) {
-      if (r.ok) { form.reset(); say('You are on the list. Talk soon.', 'ok'); }
-      else { say('That did not go through. Try again in a moment.', 'err'); }
-    }).catch(function () {
-      say('That did not go through. Try again in a moment.', 'err');
-    }).then(function () { btn.disabled = false; });
-  });
-})();
-</script>
 </body>
 </html>

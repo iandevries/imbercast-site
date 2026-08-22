@@ -23,12 +23,12 @@ python3 -m http.server 8000
 
 Then visit http://localhost:8000.
 
-## One thing to fill in before launch
+## Signup form
 
-**The signup form.** Sign up free at https://formspree.io, create a form, and
-copy the endpoint it gives you (looks like `https://formspree.io/f/abcdwxyz`).
-In `index.html`, replace `YOUR_FORM_ID` with that ID. Until you do, the form
-shows a "not connected yet" message instead of submitting.
+The launch-list signup form was removed for now. It lived in the hero, above the
+artwork, and posted to a third-party form service. To bring it back, restore the
+form markup, its CSS section and its submit handler from git history, then point
+the form action at a real endpoint.
 
 ## Publishing on GitHub Pages
 
