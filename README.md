@@ -67,13 +67,33 @@ GitHub Pages will show the domain as unverified until it resolves.
 
 | Token | Value | Used for |
 | --- | --- | --- |
-| `--accent` | `#4d9fff` | Wordmark, rule, button, sprinkler heads |
+| `--accent` | `#4d9fff` | Wordmark, rule, capability accents |
 | `--red` | `#ff5c4a` | Eyebrow, status dot, capability numerals, logo core |
-| pipe gradient | `#ff7264` to `#a82a1c` | Sprinkler piping in the artwork |
 
-Pipe is red and the heads are flat blue, matching how sprinkler piping reads on
-a drawing. The artwork has no glow on the heads. Red background washes sit under
-the artwork and along the bottom of the page.
+The hero artwork does not use the page palette. It uses the application's own
+3-D view colours so the drawing on the site and the Home tab in the app read as
+the same picture:
+
+| Element | Value |
+| --- | --- |
+| Pipe | `#6b7390` |
+| Junction node | `#b7bed2` |
+| Sprinkler head | `#37b6ff` |
+| Source | `#ff3a1a` |
+| Ground lattice | white at 5.5% (minor) and 13% (major) |
+
+## The hero artwork
+
+It is the application's built-in normal-pressure grid reference case, drawn
+through the same camera the app's 3-D view was using: two cross mains a bay
+apart, six rungs between them, three of those carrying twelve sprinklers, and
+the supply running off the near corner. Node positions are the real projected
+positions, not a stylisation — geometry and camera matrix were read out of the
+running application and the SVG generated from them. Node tags are left off,
+because at the size the artwork renders they would not be legible.
+
+Redrawing it means regenerating from the app rather than editing coordinates
+here by hand.
 
 ## Notes
 
