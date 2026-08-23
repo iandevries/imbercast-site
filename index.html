@@ -77,6 +77,12 @@ h1 b{font-weight:500;color:var(--accent)}
 
 /* ---------- art ---------- */
 .art{position:relative;justify-self:center;width:100%;max-width:640px}
+/* The clip lies over the inline artwork, which is its poster: the SVG paints
+   with the page, the clip covers it once decoded. Same 1.45 aspect, so they
+   register exactly. Both carry the same edge mask so neither shows a box. */
+.clip{position:absolute;inset:0;width:100%;height:auto;display:block;
+  -webkit-mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%);
+  mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%)}
 .net{width:100%;height:auto;display:block;overflow:visible;
   -webkit-mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%);
   mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%)}
@@ -127,6 +133,7 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
+  .clip{display:none}
 }
 </style>
 </head>
@@ -163,7 +170,7 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 <g class="source"><circle cx="181.0" cy="368.6" r="8.4"/></g>
 <text class="src-label" x="181.0" y="401.6" text-anchor="middle">SOURCE</text>
 <g class="gizmo" transform="translate(138,597)"><line x1="0" y1="0" x2="40.7" y2="10.3" stroke="#e64749"/><line x1="0" y1="0" x2="33.5" y2="-25.3" stroke="#45a659"/><line x1="0" y1="0" x2="0" y2="-42" stroke="#1f8fe0"/><text x="47" y="17" fill="#e64749">X</text><text x="39" y="-27" fill="#45a659">Y</text><text x="5" y="-46" fill="#1f8fe0">Z</text></g>
-<g class="chip"><rect x="597" y="73" width="329" height="124" rx="8"/><text class="k" x="610" y="94.9">Demand</text><text class="v" x="913" y="94.9" text-anchor="end">51.34 psi @ 850.6 gpm</text><text class="k" x="610" y="117.7">Sprinklers</text><text class="v" x="913" y="117.7" text-anchor="end">350.6 gpm</text><text class="k" x="610" y="140.5">Hose Stream</text><text class="v" x="913" y="140.5" text-anchor="end">500.0 gpm</text><text class="k" x="610" y="163.3">Supply</text><text class="v" x="913" y="163.3" text-anchor="end">69.88 psi @ 850.6 gpm</text><text class="k" x="610" y="186.1">Safety Margin</text><text class="v ok" x="913" y="186.1" text-anchor="end">18.54 psi (26.5%)</text></g></svg></div>
+<g class="chip"><rect x="597" y="73" width="329" height="124" rx="8"/><text class="k" x="610" y="94.9">Demand</text><text class="v" x="913" y="94.9" text-anchor="end">56.54 psi @ 862.6 gpm</text><text class="k" x="610" y="117.7">Sprinklers</text><text class="v" x="913" y="117.7" text-anchor="end">362.6 gpm</text><text class="k" x="610" y="140.5">Hose Stream</text><text class="v" x="913" y="140.5" text-anchor="end">500.0 gpm</text><text class="k" x="610" y="163.3">Supply</text><text class="v" x="913" y="163.3" text-anchor="end">69.88 psi @ 862.6 gpm</text><text class="k" x="610" y="186.1">Safety Margin</text><text class="v ok" x="913" y="186.1" text-anchor="end">13.34 psi (19.1%)</text></g></svg><img class="clip" src="hero-clip.webp" width="760" height="524" decoding="async" alt="The Imbercast 3-D viewport building a sprinkler grid: supply and riser, cross mains and branch lines spreading outward, twelve sprinklers placing, then the results chip."></div>
   </header>
 
   <section class="caps">
