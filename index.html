@@ -63,8 +63,16 @@ a{color:inherit}
 @keyframes beat{0%{box-shadow:0 0 0 0 rgba(255,92,74,.5)}70%{box-shadow:0 0 0 7px rgba(255,92,74,0)}100%{box-shadow:0 0 0 0 rgba(255,92,74,0)}}
 
 /* ---------- hero ---------- */
-.hero{display:block;padding:24px 0 56px}
-.copy{max-width:62ch}
+.hero{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
+  gap:clamp(24px,5vw,60px);align-items:end;padding:24px 0 56px}
+.copy{min-width:0}
+.intro{min-width:0;padding-bottom:4px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px 26px;margin:26px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.facts div{min-width:0}
+.facts dt{font-family:var(--mono);font-size:10px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-3);margin:0}
+.facts dd{margin:6px 0 0;font-size:.94rem;color:var(--ink)}
 .eyebrow{color:var(--red);font-weight:500;margin:0 0 22px}
 h1{font-family:var(--display);font-weight:500;margin:0;
   font-size:clamp(3.1rem,8.6vw,5.6rem);line-height:.94;letter-spacing:-.035em}
@@ -83,7 +91,7 @@ h1 b{font-weight:500;color:var(--accent)}
    for anyone who has asked for reduced motion, and is not rendered otherwise,
    so the two can never appear together. The panel holds its own aspect and
    ground colour, so the page never reflows and never shows a hole. */
-.art{position:relative;width:100%;margin:40px 0 0;border:1px solid var(--line);
+.art{grid-column:1/-1;position:relative;width:100%;margin:40px 0 0;border:1px solid var(--line);
   border-radius:12px;overflow:hidden;background:#0f131a;aspect-ratio:1000/690}
 .clip{display:block;width:100%;height:100%;object-fit:cover}
 .net{display:none}
@@ -115,19 +123,33 @@ h1 b{font-weight:500;color:var(--accent)}
 .cap h3{font-family:var(--display);font-weight:500;font-size:1.02rem;letter-spacing:-.01em;margin:0 0 9px}
 .cap p{color:var(--ink-2);font-size:.9rem;line-height:1.58;margin:0}
 
+/* ---------- also in the box ---------- */
+.more{border-top:1px solid var(--line);padding:58px 0 8px}
+.more h2{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;margin:0 0 34px}
+.rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 40px}
+.row h3{font-family:var(--display);font-weight:500;font-size:1rem;letter-spacing:-.01em;
+  margin:0 0 9px}
+.row p{color:var(--ink-2);font-size:.9rem;line-height:1.58;margin:0}
+
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
   display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
   color:var(--ink-3)}
 
 @media (max-width:920px){
-  .hero{grid-template-columns:1fr;min-height:0;padding:18px 0 44px}
+  .hero{grid-template-columns:1fr;padding:18px 0 44px}
+  .intro{padding-bottom:0}
+  .facts{margin-top:22px}
   .art{margin-top:30px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}
+  .rows{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tagline{max-width:26ch}
 }
 @media (max-width:560px){
   .grid{grid-template-columns:1fr;margin:0;row-gap:0}
+  .rows{grid-template-columns:1fr;gap:26px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cap{padding:22px 0 24px;border-left:0;border-top:1px solid var(--line-2)}
   .cap:first-child{border-top:0;padding-top:2px}
   .status{display:none}
@@ -161,7 +183,16 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
       <h1>Imber<b>cast</b></h1>
       <div class="rule"></div>
       <p class="tagline">3D sprinkler design and hydraulic calculation.</p>
+    </div>
+
+    <div class="intro">
       <p class="lede">A standalone desktop application for laying out fire sprinkler systems in three dimensions and calculating them to NFPA&nbsp;13. Import the floor plan, draw the system, run the calc, print the package. <em>No CAD license required.</em></p>
+      <dl class="facts">
+        <div><dt>Platform</dt><dd>Windows desktop</dd></div>
+        <div><dt>Calculates to</dt><dd>NFPA&nbsp;13</dd></div>
+        <div><dt>Units</dt><dd>US or metric</dd></div>
+        <div><dt>CAD license</dt><dd>Not required</dd></div>
+      </dl>
     </div>
 
     <div class="art"><svg class="net" viewBox="80 60 860 593" aria-hidden="true" focusable="false">
@@ -198,6 +229,36 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
         <span class="n">04</span>
         <h3>Calc package</h3>
         <p>Results output with plan and isometric figures generated from the model, ready to drop into a submittal.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="more">
+    <h2>Also in the box</h2>
+    <div class="rows">
+      <article class="row">
+        <h3>Devices in line</h3>
+        <p>Fire pumps, pressure-reducing valves, backflow preventers and fixed-loss devices sit in the model and are solved with it, not bolted on afterwards.</p>
+      </article>
+      <article class="row">
+        <h3>Remote areas and peaking</h3>
+        <p>Carry several remote areas on one job and switch between them. Gridded and looped systems get automatic peaking.</p>
+      </article>
+      <article class="row">
+        <h3>Hose allowances</h3>
+        <p>Outside hose at the supply, inside hose at its own connection, both carried through the demand the supply has to meet.</p>
+      </article>
+      <article class="row">
+        <h3>Fire Pump Analyzer</h3>
+        <p>Work a pump against the supply curve and the system demand, and see where the churn and the rated point land.</p>
+      </article>
+      <article class="row">
+        <h3>Cost Estimator</h3>
+        <p>Takeoff and pricing off the model you already drew, so the estimate cannot drift from the design.</p>
+      </article>
+      <article class="row">
+        <h3>US or metric</h3>
+        <p>Switch units whenever you like. The engine keeps one canonical set underneath, so nothing is lost in the conversion.</p>
       </article>
     </div>
   </section>
