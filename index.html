@@ -64,13 +64,16 @@ a{color:inherit}
 
 /* ---------- hero ---------- */
 .hero{display:block;padding:24px 0 56px}
-/* What you are designing, as a row of the kinds the app actually offers. */
-.kinds-note{color:var(--ink-2);max-width:74ch;margin:26px 0 0;font-size:1rem}
-.kinds{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0}
-.kinds li{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);
-  border-radius:999px;padding:7px 14px}
-.kinds li.own{color:var(--ink-3);border-style:dashed}
+/* The kinds of system the app offers, each with its own mark. */
+.kinds-note{color:var(--ink-2);max-width:66ch;margin:26px 0 0;font-size:1rem}
+.kinds{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:12px;margin:22px 0 0;padding:0}
+.kinds li{display:flex;flex-direction:column;align-items:center;gap:11px;
+  padding:18px 8px 15px;border:1px solid var(--line-2);border-radius:10px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-2);text-align:center;line-height:1.3}
+.kinds svg{width:26px;height:26px;display:block;fill:none;stroke:var(--accent);
+  stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
 .eyebrow{color:var(--red);font-weight:500;margin:0 0 22px}
 h1{font-family:var(--display);font-weight:500;margin:0;
   font-size:clamp(3.1rem,8.6vw,5.6rem);line-height:.94;letter-spacing:-.035em}
@@ -128,12 +131,14 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 
 @media (max-width:920px){
   .hero{padding:18px 0 44px}
+  .kinds{grid-template-columns:repeat(3,minmax(0,1fr))}
   .art{margin-top:30px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}
   .tagline{max-width:26ch}
 }
 @media (max-width:560px){
   .grid{grid-template-columns:1fr;margin:0;row-gap:0}
+  .kinds{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cap{padding:22px 0 24px;border-left:0;border-top:1px solid var(--line-2)}
   .cap:first-child{border-top:0;padding-top:2px}
   .status{display:none}
@@ -168,15 +173,14 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
       <div class="rule"></div>
       <p class="tagline">3D sprinkler design and hydraulic calculation.</p>
       <p class="lede">A standalone desktop application for laying out fire sprinkler systems in three dimensions and calculating them to NFPA&nbsp;13. Import the floor plan, draw the system, run the calc, print the package. <em>No CAD license required.</em></p>
-      <p class="kinds-note">Say what you are designing and the job sets itself up for it. The calculation method, the hose allowances, the outlet pressure, whether peaking runs, and the fluid being pushed all move to what that kind of system needs &mdash; so you are not carrying settings that belong to somebody else's job. Every one of them stays editable, and <em>Custom</em> leaves them all alone.</p>
+      <p class="kinds-note">Imbercast simplifies itself around the system you pick, so the job only shows you what that kind of system needs.</p>
       <ul class="kinds">
-        <li>Residential</li>
-        <li>Commercial</li>
-        <li>Standpipe</li>
-        <li>Water Mist</li>
-        <li>Antifreeze</li>
-        <li>Foam</li>
-        <li class="own">Custom</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.8 11.3 12 4.4l8.2 6.9"/><path d="M6.3 10.1v9.5h11.4v-9.5"/><path d="M10.1 19.6v-5.3h3.8v5.3"/></svg>Residential</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.4 19.6V5.9h9.1v13.7"/><path d="M13.5 19.6V10h6.1v9.6"/><path d="M6.9 8.9h1.5M10.6 8.9h1.5M6.9 12.3h1.5M10.6 12.3h1.5M6.9 15.7h1.5M10.6 15.7h1.5M15.9 12.8h1.4M15.9 16.2h1.4"/><path d="M2.9 19.6h18.2"/></svg>Commercial</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 4.2v15.4"/><path d="M6.8 19.6h5.6"/><path d="M8.1 4.2h3"/><path d="M9.6 8.8h4.1"/><circle cx="15.8" cy="8.8" r="1.9"/><path d="M9.6 14.2h4.1"/><circle cx="15.8" cy="14.2" r="1.9"/></svg>Standpipe</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.8v3.1"/><path d="M8.5 6.9h7"/><path d="M9.1 10.6v1.3M12 11v1.5M14.9 10.6v1.3M7.4 13.8v1.1M10.5 14.4v1.2M13.5 14.4v1.2M16.6 13.8v1.1M8.9 17.3v1M12 17.9v1.1M15.1 17.3v1"/></svg>Water Mist</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4v17.2"/><path d="M4.6 7.7 19.4 16.3"/><path d="M19.4 7.7 4.6 16.3"/><path d="M12 6.7 9.9 5.1M12 6.7l2.1-1.6M12 17.3l-2.1 1.6M12 17.3l2.1 1.6"/></svg>Antifreeze</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.3" cy="12.6" r="2.9"/><circle cx="14.3" cy="10.7" r="3.6"/><circle cx="17.7" cy="14.5" r="2.2"/><path d="M3.9 19.2h16.2"/></svg>Foam</li>
       </ul>
     </div>
 
