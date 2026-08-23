@@ -77,10 +77,14 @@ the same picture:
 | Element | Value |
 | --- | --- |
 | Pipe | `#6b7390` |
-| Junction node | `#b7bed2` |
 | Sprinkler head | `#37b6ff` |
-| Source | `#ff3a1a` |
+| Source, and the SOURCE label | `#ff3a1a` |
 | Ground lattice | white at 5.5% (minor) and 13% (major) |
+| Axis triad | `#e64749` X, `#45a659` Y, `#1f8fe0` Z |
+
+Plain junction nodes are drawn in the application but left off here: at this
+size they cluttered the run of the cross mains without telling the reader
+anything. Only the heads and the source carry a marker.
 
 ## The hero artwork
 
@@ -90,7 +94,9 @@ apart, six rungs between them, three of those carrying twelve sprinklers, and
 the supply running off the near corner. Node positions are the real projected
 positions, not a stylisation — geometry and camera matrix were read out of the
 running application and the SVG generated from them. Node tags are left off,
-because at the size the artwork renders they would not be legible.
+because at the size the artwork renders they would not be legible; the source
+is named instead. The axis triad's arms are the world axes put through that
+same camera matrix, so they point where the view actually looks.
 
 Redrawing it means regenerating from the app rather than editing coordinates
 here by hand.
