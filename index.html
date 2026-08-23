@@ -63,29 +63,31 @@ a{color:inherit}
 @keyframes beat{0%{box-shadow:0 0 0 0 rgba(255,92,74,.5)}70%{box-shadow:0 0 0 7px rgba(255,92,74,0)}100%{box-shadow:0 0 0 0 rgba(255,92,74,0)}}
 
 /* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,5vw,64px);
-  align-items:center;min-height:calc(100svh - 200px);padding:24px 0 52px}
+.hero{display:block;padding:24px 0 56px}
+.copy{max-width:62ch}
 .eyebrow{color:var(--red);font-weight:500;margin:0 0 22px}
 h1{font-family:var(--display);font-weight:500;margin:0;
   font-size:clamp(3.1rem,8.6vw,5.6rem);line-height:.94;letter-spacing:-.035em}
 h1 b{font-weight:500;color:var(--accent)}
 .rule{height:1px;background:linear-gradient(90deg,var(--accent),rgba(77,159,255,.06));margin:26px 0 22px;max-width:340px}
 .tagline{font-family:var(--display);font-weight:400;font-size:clamp(1.16rem,2.5vw,1.5rem);
-  line-height:1.32;letter-spacing:-.012em;margin:0 0 18px;max-width:19ch}
-.lede{color:var(--ink-2);max-width:46ch;margin:0 0 30px;font-size:1rem}
+  line-height:1.32;letter-spacing:-.012em;margin:0 0 18px;max-width:32ch}
+.lede{color:var(--ink-2);max-width:58ch;margin:0 0 4px;font-size:1rem}
 .lede em{color:var(--ink);font-style:normal}
 
 /* ---------- art ---------- */
-.art{position:relative;justify-self:center;width:100%;max-width:640px}
-/* The clip lies over the inline artwork, which is its poster: the SVG paints
-   with the page, the clip covers it once decoded. Same 1.45 aspect, so they
-   register exactly. Both carry the same edge mask so neither shows a box. */
-.clip{position:absolute;inset:0;width:100%;height:auto;display:block;
-  -webkit-mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%);
-  mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%)}
-.net{width:100%;height:auto;display:block;overflow:visible;
-  -webkit-mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%);
-  mask-image:radial-gradient(78% 78% at 52% 46%,#000 52%,transparent 100%)}
+/* The viewport, presented as a screen: a framed panel the clip fills edge to
+   edge. Nothing is layered behind it — an earlier version put the clip over
+   the still and masked its edges, which let the still show through at the
+   corners and drew the axis mark and results chip twice. The still is kept
+   for anyone who has asked for reduced motion, and is not rendered otherwise,
+   so the two can never appear together. The panel holds its own aspect and
+   ground colour, so the page never reflows and never shows a hole. */
+.art{position:relative;width:100%;margin:40px 0 0;border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;background:#0f131a;aspect-ratio:1000/690}
+.clip{display:block;width:100%;height:100%;object-fit:cover}
+.net{display:none}
+
 /* Colours below are the app's own 3-D view palette, so the artwork and
    the Home tab read as the same picture. */
 .g-minor line{stroke:rgba(255,255,255,.055);stroke-width:1}
@@ -120,7 +122,7 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 
 @media (max-width:920px){
   .hero{grid-template-columns:1fr;min-height:0;padding:18px 0 44px}
-  .art{order:2;max-width:560px;margin-top:6px;opacity:.85}
+  .art{margin-top:30px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}
   .tagline{max-width:26ch}
 }
@@ -134,6 +136,7 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .clip{display:none}
+  .net{display:block;width:100%;height:auto}
 }
 </style>
 </head>
@@ -170,7 +173,7 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;
 <g class="source"><circle cx="181.0" cy="368.6" r="8.4"/></g>
 <text class="src-label" x="181.0" y="401.6" text-anchor="middle">SOURCE</text>
 <g class="gizmo" transform="translate(138,597)"><line x1="0" y1="0" x2="40.7" y2="10.3" stroke="#e64749"/><line x1="0" y1="0" x2="33.5" y2="-25.3" stroke="#45a659"/><line x1="0" y1="0" x2="0" y2="-42" stroke="#1f8fe0"/><text x="47" y="17" fill="#e64749">X</text><text x="39" y="-27" fill="#45a659">Y</text><text x="5" y="-46" fill="#1f8fe0">Z</text></g>
-<g class="chip"><rect x="597" y="73" width="329" height="124" rx="8"/><text class="k" x="610" y="94.9">Demand</text><text class="v" x="913" y="94.9" text-anchor="end">56.54 psi @ 862.6 gpm</text><text class="k" x="610" y="117.7">Sprinklers</text><text class="v" x="913" y="117.7" text-anchor="end">362.6 gpm</text><text class="k" x="610" y="140.5">Hose Stream</text><text class="v" x="913" y="140.5" text-anchor="end">500.0 gpm</text><text class="k" x="610" y="163.3">Supply</text><text class="v" x="913" y="163.3" text-anchor="end">69.88 psi @ 862.6 gpm</text><text class="k" x="610" y="186.1">Safety Margin</text><text class="v ok" x="913" y="186.1" text-anchor="end">13.34 psi (19.1%)</text></g></svg><img class="clip" src="hero-clip.webp" width="760" height="524" decoding="async" alt="The Imbercast 3-D viewport building a sprinkler grid: supply and riser, cross mains and branch lines spreading outward, twelve sprinklers placing, then the results chip."></div>
+<g class="chip"><rect x="597" y="73" width="329" height="124" rx="8"/><text class="k" x="610" y="94.9">Demand</text><text class="v" x="913" y="94.9" text-anchor="end">56.54 psi @ 862.6 gpm</text><text class="k" x="610" y="117.7">Sprinklers</text><text class="v" x="913" y="117.7" text-anchor="end">362.6 gpm</text><text class="k" x="610" y="140.5">Hose Stream</text><text class="v" x="913" y="140.5" text-anchor="end">500.0 gpm</text><text class="k" x="610" y="163.3">Supply</text><text class="v" x="913" y="163.3" text-anchor="end">69.88 psi @ 862.6 gpm</text><text class="k" x="610" y="186.1">Safety Margin</text><text class="v ok" x="913" y="186.1" text-anchor="end">13.34 psi (19.1%)</text></g></svg><img class="clip" src="hero-clip.webp" width="1000" height="690" decoding="async" alt="The Imbercast 3-D viewport building a sprinkler grid: supply and riser, cross mains and branch lines spreading outward, twelve sprinklers placing, then the results chip."></div>
   </header>
 
   <section class="caps">
