@@ -1,6 +1,6 @@
 # imbercast.com
 
-Placeholder site for Imbercast, a 3D sprinkler design and hydraulic calculation
+Placeholder site for imbercast, a 3D sprinkler design and hydraulic calculation
 desktop application. Static, single page, no build step and no dependencies.
 
 ## Files
