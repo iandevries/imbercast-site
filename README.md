@@ -9,7 +9,8 @@ desktop application. Static, single page, no build step and no dependencies.
 | --- | --- |
 | `index.html` | The whole site. All CSS, JS and the isometric artwork are inline. |
 | `favicon.svg` | Tab icon. |
-| `og.png` | 1200x630 social preview, used by the Open Graph tags. |
+| `og-2.png` | 1200x630 social preview, used by the Open Graph tags. |
+| `og.png` | The same image under the previous name, so links already scraped against that URL do not break. |
 | `CNAME` | Tells GitHub Pages the site is served at `imbercast.com`. |
 | `.nojekyll` | Skips Jekyll processing. |
 
