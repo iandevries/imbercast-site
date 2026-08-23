@@ -9,6 +9,7 @@ desktop application. Static, single page, no build step and no dependencies.
 | --- | --- |
 | `index.html` | The whole site. All CSS, JS and the isometric artwork are inline. |
 | `favicon.svg` | Tab icon. |
+| `hero-clip.webp` | The hero animation: the viewport building the grid reference model. Rendered from the application, then drawn over to match the still &mdash; see below. |
 | `og-2.png` | 1200x630 social preview, used by the Open Graph tags. |
 | `og.png` | The same image under the previous name, so links already scraped against that URL do not break. |
 | `CNAME` | Tells GitHub Pages the site is served at `imbercast.com`. |
@@ -86,6 +87,27 @@ the same picture:
 Plain junction nodes are drawn in the application but left off here: at this
 size they cluttered the run of the cross mains without telling the reader
 anything. Only the heads and the source carry a marker.
+
+## The hero clip
+
+`hero-clip.webp` is captured from the application's own 3-D viewport, then
+composited to match the still beside it. What is overridden at render time,
+and never in the application itself:
+
+- The ground is the still's `#0b0e14` rather than the app's lighter viewport
+  surface, so the panel sits on the page without a tonal step.
+- Pipe widths and marker sizes in the viewport are fixed **pixel** values, so
+  a larger frame leaves them the same thickness while the drawing around them
+  grows &mdash; raising the resolution thins the picture out. They are scaled
+  with the frame (pipes 2.5x, markers 1.9x) to carry the still's weight.
+- The results chip, the SOURCE label and the axis triad are drawn by the
+  compositor and sized as a *share of the frame*, to the same proportions the
+  still uses, so they stay right at any resolution.
+- The triad is redrawn rather than captured: the view paints its own at a
+  fixed pen width, which softens on the downscale. It still turns with the
+  camera &mdash; the world axes are projected every frame.
+- Node tags, device markers and the riser nipples are left out, and the
+  branch lines are levelled onto the cross mains.
 
 ## The hero artwork
 
