@@ -8,7 +8,7 @@ desktop application. Static, single page, no build step and no dependencies.
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole site. All CSS, JS and the isometric artwork are inline. |
-| `favicon.svg` | Tab icon. |
+| `favicon.svg` | Tab icon: the monogram with a hairline edge, so it still has a defined shape on a light tab bar. |
 | `hero-clip.webp` | The hero animation: the viewport building the grid reference model. Rendered from the application, then drawn over to match the still &mdash; see below. |
 | `og-2.png` | 1200x630 social preview, used by the Open Graph tags. |
 | `og.png` | The same image under the previous name, so links already scraped against that URL do not break. |
