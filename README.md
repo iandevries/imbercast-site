@@ -8,7 +8,8 @@ desktop application. Static, single page, no build step and no dependencies.
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole site. All CSS, JS and the isometric artwork are inline. |
-| `favicon.svg` | Tab icon: the monogram on a PALE tile, which is the opposite of the nav mark on purpose. A dark tile disappears into a dark browser tab strip; each is tuned to the ground it sits on. Bled to the edges with no radius and no border: Google and some launchers crop a favicon to a circle, which clips a rounded tile's corners off and leaves a border reading as a ring around the cut. |
+| `favicon-16/32/48/180.png` | Tab and touch icons: the monogram on a PALE tile, which is the opposite of the nav mark on purpose &mdash; a dark tile disappears into a dark browser tab strip. Each size is drawn separately rather than scaled from one file: a stem bold enough to read at 16&nbsp;px is squat at 48. Bled to the edges, no radius, no border, because Google and some launchers crop an icon to a circle. |
+| `favicon.svg` | The same mark as vector. Deliberately NOT declared in the page: Chrome prefers an SVG icon whenever one is offered and would rasterise it thin at tab size, which is the problem the PNGs solve. |
 | `hero-clip.webp` | The hero animation: the viewport building the grid reference model. Rendered from the application, then drawn over to match the still &mdash; see below. |
 | `og-2.png` | 1200x630 social preview, used by the Open Graph tags. |
 | `og.png` | The same image under the previous name, so links already scraped against that URL do not break. |
