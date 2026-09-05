@@ -10,7 +10,12 @@
      whenever one is declared, so the SVG is deliberately not declared
      here - it would be rasterised thin at tab size. The large sizes
      matter too: Google renders a favicon well above 48px, and
-     apple-touch-icon is not a source it draws on. -->
+     apple-touch-icon is not a source it draws on. The pale ground is a
+     disc, not a square: a tile reads as a sticker pasted into the tab
+     strip, and the disc is the shape Google crops a favicon to anyway,
+     so the two now agree. The mark inside is untouched at every size.
+     apple-touch-icon stays square - iOS masks it to its own rounded
+     rectangle and fills any transparency with black. -->
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">

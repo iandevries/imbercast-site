@@ -8,7 +8,8 @@ desktop application. Static, single page, no build step and no dependencies.
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole site. All CSS, JS and the isometric artwork are inline. |
-| `favicon-16/32/48/180.png` | Tab and touch icons: the monogram on a PALE tile, which is the opposite of the nav mark on purpose &mdash; a dark tile disappears into a dark browser tab strip. Each size is drawn separately rather than scaled from one file: a stem bold enough to read at 16&nbsp;px is squat at 48. Bled to the edges, no radius, no border, because Google and some launchers crop an icon to a circle. |
+| `favicon-16/32/48/96/192.png` | Tab icons: the monogram on a PALE disc, which is the opposite of the nav mark on purpose &mdash; a dark mark disappears into a dark browser tab strip. Each size is drawn separately rather than scaled from one file: a stem bold enough to read at 16&nbsp;px is squat at 48. The ground is a circle bled to the edges of the box, not a tile: a square reads as a sticker in the tab strip, and a circle is what Google and some launchers crop to anyway, so nothing is lost to their crop. The disc's edge is anti-aliased against transparency; the mark inside each file is unchanged from when it was cut. |
+| `favicon-180.png` | apple-touch-icon, and the one icon still on a square tile: iOS masks it to its own rounded rectangle and fills transparency with black, so a disc would land on a black square. Not a source Google draws on. |
 | `favicon.svg` | The same mark as vector. Deliberately NOT declared in the page: Chrome prefers an SVG icon whenever one is offered and would rasterise it thin at tab size, which is the problem the PNGs solve. |
 | `hero-clip.webp` | The hero animation: the viewport building the grid reference model. Rendered from the application, then drawn over to match the still &mdash; see below. |
 | `og-2.png` | 1200x630 social preview, used by the Open Graph tags. |
